@@ -1,5 +1,6 @@
 import { Handlers } from "$fresh/server.ts";
-import { ITodo, TodoListStore } from "../../../data/todo-list.ts";
+import { TodoListStore } from "../../../data/todo-list.memo.ts";
+import { ITodo } from "../../../data/todo-list.ts";
 import { getData } from "../../../utils/getData.ts";
 
 const store = new TodoListStore();

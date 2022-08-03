@@ -1,5 +1,5 @@
 import { Handlers } from "$fresh/server.ts";
-import { TodoListStore } from "../../../data/todo-list.ts";
+import { TodoListStore } from "../../../data/todo-list.memo.ts";
 import { JSONtoString } from "./index.ts";
 
 const store = new TodoListStore();
