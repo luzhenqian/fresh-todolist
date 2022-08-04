@@ -1,8 +1,7 @@
 import { Handlers } from "$fresh/server.ts";
-import { TodoListStore } from "../../../data/todo-list.memo.ts";
 import { JSONtoString } from "./index.ts";
 
-const store = new TodoListStore();
+const store = window.todoListStore
 
 export const handler: Handlers = {
   DELETE(_, ctx) {

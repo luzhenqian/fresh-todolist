@@ -2,6 +2,7 @@
 import { h } from "preact";
 import { useEffect, useRef, useState } from "preact/hooks";
 import "twind/shim";
+import { get, add, complete, notComplete, remove } from "../apis/todolist.ts";
 import { Button } from "../components/Button.tsx";
 import { ITodo, ITodos } from "../data/todo-list.ts";
 
@@ -75,37 +76,11 @@ const TodoItem = (props: ITodo & { refresh: Function }) => (
   </div>
 );
 
-const getTodoList = async () =>
-  await fetch("/api/todo-list").then((res) => res.json());
-
-const add = async (body: ITodo) =>
-  await fetch("/api/todo-list", {
-    method: "POST",
-    body: JSON.stringify(body),
-  }).then((res) => res.json());
-
-const remove = async (id: string) =>
-  await fetch(`/api/todo-list/${id}`, {
-    method: "DELETE",
-  }).then((res) => res.json());
-
-const complete = async (id: string) =>
-  await fetch(`/api/todo-list/complete`, {
-    method: "PUT",
-    body: JSON.stringify({ id }),
-  }).then((res) => res.json());
-
-const notComplete = async (id: string) =>
-  await fetch(`/api/todo-list/not-complete`, {
-    method: "PUT",
-    body: JSON.stringify({ id }),
-  }).then((res) => res.json());
-
 export default function TodoList(props: any) {
   const [todoList, setTodoList] = useState<ITodos>([]);
   const inputRef = useRef<HTMLInputElement>(null);
   const refresh = () => {
-    getTodoList().then((todoList) => {
+    get().then((todoList) => {
       setTodoList(todoList);
       console.log(todoList, "todoList");
     });
