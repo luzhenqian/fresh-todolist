@@ -1,5 +1,5 @@
 import { ITodoListStore } from "./data/todo-list.ts";
-import { TodoListStore } from "./data/todo-list.memo.ts";
+import { TodoListStore } from "./data/todo-list.session.ts";
 
 declare global {
   const todoListStore: ITodoListStore;
@@ -7,7 +7,5 @@ declare global {
     todoListStore: ITodoListStore;
   }
 }
-
-console.log(1);
 
 window.todoListStore = new TodoListStore();

@@ -37,7 +37,7 @@ const RemoveButton = (props: any) => (
 const TodoItem = (props: ITodo & { refresh: Function }) => (
   <div
     class={`flex  py-2 px-3 items-center border-b-4 border-slate-400
-  ${props.completed ? " bg-red-100 " : " bg-green-100 "}`}
+  ${props.completed ? " bg-green-100 " : " bg-red-100 "}`}
   >
     <p class="w-full text-grey-darkest">{props.text}</p>
     {props.completed ? (
